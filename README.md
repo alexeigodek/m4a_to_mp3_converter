@@ -1,7 +1,41 @@
-# Windows .m4a to .mp3 converter
+# M4A to MP3 Converter (Windows)
 
-This simple Windows batch script allows you to convert all .m4a files from a tree structure to mp3.
+Convert an entire folder of `.m4a` files to `.mp3` with a single command, including subfolders.
 
-## How to use
-Simply **DOWNLOAD the .bat script** and put it at the top of your tree structure. (It will convert all files from current directory and all others files in children folders)
+Perfect for quickly processing voice recordings, iPhone exports, or full audio libraries.
+
+## What the script does
+
+- Scans the current folder **and all subfolders**.
+- Converts every `.m4a` file to `.mp3`.
+- Keeps source `.m4a` files untouched.
+- Automatically downloads `ffmpeg` when needed.
+
+## Requirements
+
+- Windows (PowerShell or CMD)
+- Internet connection (first run only, to download `ffmpeg`)
+
+## Quick start
+
+1. Download or copy `M4A_TO_MP3_Converter.bat`.
+2. Place it at the **root of the folder** that contains your `.m4a` files.
+3. Double-click the `.bat` file (or run it from CMD/PowerShell in that folder).
+
+```bat
+.\M4A_TO_MP3_Converter.bat
+```
+
+The script converts all `.m4a` files found in that folder and all its subfolders.
+
+## Output
+
+- For `audio.m4a`, you get `audio.mp3` in the same location.
+- If the `.mp3` already exists, it is not overwritten.
+
+## Useful notes
+
+- The script downloads a recent `ffmpeg` build, uses it for conversion, then removes the `ffmpeg` folder at the end.
+- Audio quality currently used: `-q:a 8` (high compression, smaller files).  
+  If you want better quality, adjust this parameter in `src/M4A_TO_MP3_Converter.bat`.
 
