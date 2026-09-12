@@ -39,3 +39,22 @@ The script converts all `.m4a` files found in that folder and all its subfolders
 - Audio quality currently used: `-q:a 8` (high compression, smaller files).  
   If you want better quality, adjust this parameter in `src/M4A_TO_MP3_Converter.bat`.
 
+## Useful notes 2 
+
+Updated the script to handle filenames with spaces
+
+It will:
+
+Automatically download FFmpeg if it isn't present
+Scan the folder and all subfolders
+Handle filenames containing spaces, apostrophes, &, brackets, commas, etc.
+Create the MP3 beside the original M4A
+Preserve metadata with -map_metadata 0
+Use high-quality VBR MP3 (-q:a 2)
+Not overwrite existing MP3s (-n)
+Report files that fail to convert
+Delete the temporary FFmpeg folder when finished
+
+The filename errors you're seeing in the original are consistent with the way its FOR /F/call combination is parsing paths and special characters.
+
+Usage: put the .bat file in the top-level folder containing your music, then double-click it. 
